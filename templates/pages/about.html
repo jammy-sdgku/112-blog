@@ -1,21 +1,13 @@
 {% extends 'base.html'%} {% block content%}{% load static %}
+<title>{% block title %}About{% endblock title %}</title>
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />{% endblock css %}
 
-<h1 style="text-align: center; padding: 20px; font-family: Arial, sans-serif">
-  About Me
-</h1>
-<div class="card" style="width: 18rem; margin: auto">
-  <img
-    src="{% static 'img/james.jpeg' %}"
-    alt="About Me"
-    style="
-      width: 200px;
-      display: block;
-      margin: auto;
-      padding-top: 10px;
-      text-align: center;
-      border-radius: 50%;
-    "
-  />
+<h1>About Me</h1>
+
+<div class="card">
+  <img src="{% static 'img/james.jpeg' %}" alt="About Me" />
+
   <div class="card-body">
     <h5 class="card-title">James Jones</h5>
     <h6 class="card-subtitle mb-2 text-muted">Batman</h6>
@@ -28,4 +20,5 @@
     </p>
   </div>
 </div>
+
 {% endblock content%}

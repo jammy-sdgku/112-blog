@@ -1,0 +1,38 @@
+.home_container {
+    background-image: src="{% static 'img/background.jpg' %}";
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(50%);
+    position: relative;
+    z-index: -1;
+}
+
+.home_container img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    filter: brightness(50%);
+    position: relative;
+    z-index: -1;
+    border-radius: 1.25em;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif
+}
+
+.hometext {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hometext h1 {
+    padding: 2em
+}

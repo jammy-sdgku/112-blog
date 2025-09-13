@@ -1,31 +1,16 @@
 {% extends 'base.html'%} {% block content%}{% load static %}
+<title>{% block title %}Home{% endblock title %}</title>
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />{% endblock css %}
 
-<div class="container">
-  <img
-    src="{% static 'img/background.jpg' %}"
-    alt="Background"
-    style="
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      filter: brightness(50%);
-      position: relative;
-      z-index: -1;
-    "
-  />
+<div class="home_container">
+  <img src="{% static 'img/background.jpg' %}" alt="Background" />
 </div>
-<div
-  style="
-    text-align: center;
-    color: white;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  "
->
-  <h1 style="padding: 2rem">Welcome to the James' Blog Home Page!</h1>
+
+<div class="hometext">
+  <h1>Welcome to the James' Blog Home Page!</h1>
   <p>This is the homepage of your Django blog application!</p>
   <p>Explore the pages and learn more about my application.</p>
 </div>
+
 {% endblock content%}
