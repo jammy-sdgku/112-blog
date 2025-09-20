@@ -22,7 +22,37 @@
             <li class="nav-item">
               <a class="nav-link" href={% url 'about' %}>About</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href={% url 'posts' %}>Posts</a>
+            </li>
+             <li class="nav-item">
+              <a class="nav-link" href={% url 'post_new' %}>New Posts</a>
+            </li>
+            <!--Logout-->
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <input type="submit" class="btn btn-link nav-link active" value="Logout">
+                </form>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href={% url 'login' %}>Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href=#>Register</a>
+            </li>
+            {% endif %}
+            
           </ul>
+          {% if user.is_authenticated %}
+          <div class="d-flex ms-auto">
+            <span class="badge rounded-pill text-bg-success">{{ user.username }}</span>
+          </div>
+          {% endif %}
+              Logged in as {{ user.username }}
+            </span>
         </div>
       </div>
     </nav>

@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %} Posts List {% endblock title %}
+{%load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}" />
+{% endblock css %} {% block content %}
+
+<div class="posts_list">
+  {% for item in post_list %}
+  <div>
+    <h2><a href="{% url 'post_detail' item.id %}">{{ item.title }}</a></h2>
+    <br />
+    <br />
+    <p>Author: {{ item.author }}</p>
+    <p>Created on: {{ item.created_on }}</p>
+    <p>Last updated: {{ item.updated_on }}</p>
+  </div>
+  <hr />
+  {% empty %}
+  <p>No posts available.</p>
+  {% endfor %}
+</div>
+{% endblock content %}

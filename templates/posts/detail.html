@@ -1,0 +1,27 @@
+{% extends "base.html" %} {%load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}" />
+{% endblock css %} {% block title %} {{single_post.title}} {% endblock title%}
+{% block content %}
+
+<div class="single_post">
+  <div>
+    <h1>Post #{{single_post.id}}</h1>
+    <h2>{{single_post.title}}</h2>
+    <h5>{{single_post.subtitle}}</h5>
+    <p>{{single_post.body}}</p>
+    <br />
+    <p>Author: {{single_post.author}}</p>
+    <p>Created on: {{single_post.created_on}}</p>
+    <p>Last updated: {{single_post.updated_on}}</p>
+  </div>
+  <hr />
+</div>
+<a class="btn btn-danger" href="{% url 'post_delete' single_post.id %}"
+  >Delete Post</a
+>
+<a class="btn btn-primary" href="{% url 'post_edit' single_post.id %}"
+  >Edit Post</a
+>
+<a class="btn btn-secondary" href="{% url 'posts' %}">Back to Posts</a>
+
+{% endblock content %}

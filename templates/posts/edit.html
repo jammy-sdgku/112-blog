@@ -1,0 +1,14 @@
+{% extends "base.html" %} {%load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/posts.css' %}" />
+{% endblock css %} {% block title %} Edit Post{% endblock title%} 
+{% block content %}
+<div class="container-md">
+  <h1>Edit Post</h1>
+  <form class="editForm" method="POST">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save changes</button>
+    <a class="btn btn-warning" href="{% url 'posts' %}">Cancel</a>
+    <a class="btn btn-secondary" href="{% url 'posts' %}">Back to Posts</a>
+  </form>
+</div>
+{% endblock content%}
