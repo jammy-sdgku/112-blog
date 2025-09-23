@@ -4,6 +4,15 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 
 # Create your models here.
+#status table
+class Status(models.Model):
+    name = models.CharField(max_length=128, unique=True)
+    description= models.CharField(max_length=256, help_text="Please describe the status")
+    
+    def __str__(self):
+        return self.name
+
+#post table
 class Post(models.Model):
     title = models.CharField(max_length=128)
     subtitle = models.TextField(max_length=256)

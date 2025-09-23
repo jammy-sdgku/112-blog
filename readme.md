@@ -39,4 +39,12 @@ http://127.0.0.1:5000
 
 #soft delete - made to deactivate account without deleting it.
 is_active:inactive
-# 112-blog
+
+# Install Crispy Forms
+
+    Run in your terminal -> pip install crispy_bootstrap5
+
+# run pip3 freeze > requirements.txt - this will create a requirements .txt file that shows all the dependancies for your file.
+
+#to create a file to add info to database
+python3 manage.py makemigrations --empty posts
