@@ -20,6 +20,10 @@ class Post(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    status= models.ForeignKey(
+        Status,
+            on_delete=models.CASCADE
+    )
     
     def __str__(self):
         return self.title       

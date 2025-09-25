@@ -30,7 +30,13 @@
             </li>
             <!--Logout-->
             {% if user.is_authenticated %}
-              <li class="nav-item">
+            <li class="nav-item">
+              <a class="nav-link" href={% url 'post_drafts' %}>Drafts</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href={% url 'post_archived' %}>Archived</a> 
+            </li>
+            <li class="nav-item">
                 <form method="post" action="{% url 'logout' %}">
                   {% csrf_token %}
                   <input type="submit" class="btn btn-link nav-link active" value="Logout">
