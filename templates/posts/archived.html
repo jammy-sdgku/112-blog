@@ -7,6 +7,7 @@
   <h1>Archived Posts</h1>
   <hr />
   <br />
+  <!-- #Context variable from views.py class PostDraftListView, must be same.-->
   {% for item in post_archived %}
   <div>
     <h2><a href="{% url 'post_detail' item.id %}">{{ item.title }}</a></h2>

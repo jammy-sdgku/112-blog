@@ -7,7 +7,8 @@
   <h1>Draft Posts</h1>
   <hr />
   <br />
-  {% for item in post_drafts %}
+  <!-- #Context variable from views.py class PostDraftListView, must be same.-->
+  {% for item in post_drafts %} 
   <div>
     <h2><a href="{% url 'post_detail' item.id %}">{{ item.title }}</a></h2>
     <br />
