@@ -56,3 +56,4 @@ is_active:inactive
 
 #to create a file to add info to database
 python3 manage.py makemigrations --empty posts
+# django_blog
