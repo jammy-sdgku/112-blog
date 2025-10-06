@@ -10,6 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+#import os
+#import datetime
+#import psycopg2
+
+#from dotenv import load_dotenv
+#load_dotenv()
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -84,6 +91,14 @@ DATABASES = {
     }
 }
 
+#Here I connect to the database.
+#connection = psycopg2.connect(
+#   dbname = os.getenv('DB_NAME'),
+#   user = os.getenv('DB_USER'),
+#   password = os.getenv('DB_PASSWORD'),
+#   host = os.getenv('DB_HOST'),
+#   port = os.getenv('DB_PORT')
+#    )
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
