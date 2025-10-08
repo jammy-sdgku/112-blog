@@ -13,6 +13,8 @@ pip freeze
 #start project
 django-admin startproject config . -------------------------------------------------------------------
 
+python manage.py createsuperuser
+
 #start App ---------------------------------------------------------------------------------------------
 python3 manage.py runserver
 (all commands are to be run as above after manage.py)
@@ -56,4 +58,5 @@ is_active:inactive
 
 #to create a file to add info to database
 python3 manage.py makemigrations --empty posts
+
 # django_blog

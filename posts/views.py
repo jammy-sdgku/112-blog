@@ -7,36 +7,39 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin  
 # Create your views here.
 # List view for displaying all posts
 class PostListView(ListView):
-    #model = Post
     template_name = 'posts/list.html'
     context_object_name = 'post_list'
-    ordering = ['-created_on']  # Order posts by creation date, newest first
-    status = Status.objects.get(name="published")
-    queryset = Post.objects.filter(status=status).order_by('-created_on')
-    
+    ordering = ['-created_on']
+
+    def get_queryset(self):
+        status = Status.objects.get(name="published")
+        return Post.objects.filter(status=status).order_by('-created_on')
+
 class PostDraftListView(LoginRequiredMixin, ListView):
-    #model = Post
     template_name = 'posts/drafts.html'
     context_object_name = 'post_drafts'
-    ordering = ['-created_on']  # Order draft posts by creation date, newest first
-    status = Status.objects.get(name="draft")
-    queryset = Post.objects.filter(status=status).order_by('-created_on')   
-    
-    def get_context_data(self, **kwargs): #To filter drafts by logged in user
+    ordering = ['-created_on']
+
+    def get_queryset(self):
+        status = Status.objects.get(name="draft")
+        return Post.objects.filter(status=status).order_by('-created_on')
+
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         draft_posts = context['post_drafts'].filter(author=self.request.user)
         context['post_drafts'] = draft_posts
         return context
-    
+
 class PostArchivedListView(LoginRequiredMixin, ListView): 
-    #model = Post
     template_name = 'posts/archived.html'
     context_object_name = 'post_archived'
-    ordering = ['-created_on']  # Order Archived posts by creation date, newest first
-    status = Status.objects.get(name="archived")
-    queryset = Post.objects.filter(status=status).order_by('-created_on')   
-    
-    def get_context_data(self, **kwargs): #To filter archived by logged in user
+    ordering = ['-created_on']
+
+    def get_queryset(self):
+        status = Status.objects.get(name="archived")
+        return Post.objects.filter(status=status).order_by('-created_on')
+
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         archive_posts = context['post_archived'].filter(author=self.request.user)
         context['post_archived'] = archive_posts
