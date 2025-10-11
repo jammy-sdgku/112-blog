@@ -1,0 +1,22 @@
+{% extends "base.html" %} {%load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'css/accounts.css' %}" />
+{% endblock css %} {% block title %} {{account.username}} {% endblock title%}
+{% block content %}
+
+<!--Account for loggedin user only-->
+<div class="single_account">
+    <div>
+        <h1>Account #{{account.id}}</h1>
+        <h2>Username: {{account.username}}</h2>
+        <p>Email: {{account.email}}</p>
+        <p>First Name: {{account.first_name}}</p>
+        <p>Last Name: {{account.last_name}}</p>
+        <br />
+        <p>Date Joined: {{account.date_joined}}</p>
+        <p>Last Login: {{account.last_login}}</p>
+    </div>
+    <hr />
+
+<a class="btn btn-primary" href="{% url 'home' %}">Return to Home</a>
+
+{% endblock content %}
